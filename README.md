@@ -25,17 +25,11 @@ These are custom extensions which I find myself writing over and over for new pr
 
 ## Installing
 
-Add extension to your composer file:
+Simply run this
 
-    {
-        "require": {
-            "dms/twig-extension-bundle": "1.*"
-        }
-    }
-
-or use composer's require command
-
-    composer require dms/twig-extension-bundle:1.*
+```
+composer require dms/twig-extension-bundle
+```
     
 Load the bundle in your AppKernel
 
