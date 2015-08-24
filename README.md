@@ -2,8 +2,6 @@
 
 This bundle leverages a collection of Fabien Potencier's Twig Extensions for use in your application.
 
-This bundle is part of the DMS Library, and distributed as a sub-directory split, issues should be reported at the [DMS Repository](https://github.com/rdohms/DMS).
-
 ## Extensions
 
 ### Fabien's "Twig Extensions"
