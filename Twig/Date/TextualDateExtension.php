@@ -37,7 +37,7 @@ class TextualDateExtension extends \Twig_Extension {
     public function getFilters()
     {
         return array(
-            'textualDate'    => new \Twig_Filter_Method($this, 'textualDateFilter')
+            'textualDate'    => new \Twig_SimpleFilter('textualDate', array($this, 'textualDateFilter'))
         );
     }
 
