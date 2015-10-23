@@ -15,11 +15,12 @@
 
     "require": {
         "php":  ">=5.3.3",
-        "twig/extensions": "1.*"
+        "twig/extensions": "~1.0"
     },
 
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "~4",
+        "symfony/framework-bundle": "~2.1"
     },
 
     "autoload": {
