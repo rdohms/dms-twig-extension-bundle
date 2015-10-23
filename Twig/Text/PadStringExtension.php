@@ -24,7 +24,7 @@ class PadStringExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'padString' => new \Twig_Filter_Method($this, 'padStringFilter'),
+            'padString' => new \Twig_SimpleFilter('padString', array($this, 'padStringFilter')),
         );
     }
 
