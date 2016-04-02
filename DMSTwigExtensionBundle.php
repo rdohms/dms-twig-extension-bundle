@@ -2,10 +2,8 @@
 
 namespace DMS\Bundle\TwigExtensionBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use DMS\Bundle\TwigExtensionBundle\DependencyInjection\TwigExtensionCompilerPass;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class DMSTwigExtensionBundle extends Bundle
 {

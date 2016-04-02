@@ -32,12 +32,12 @@ class PadStringExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function provideForException()
     {
-        return array(
-            'max length must be an integer' => array('ps', 'o', '4', 'STR_PAD_LEFT'),
-            'pad character cannot be null' => array('woof', null, 6, 'STR_PAD_BOTH'),
-            'pad character cannot be empty' => array('squ', '', 2, 'STR_PAD_RIGHT'),
-            'invalid pad character and max length' => array('NO', '', '5'),
-        );
+        return [
+            'max length must be an integer'        => ['ps', 'o', '4', 'STR_PAD_LEFT'],
+            'pad character cannot be null'         => ['woof', null, 6, 'STR_PAD_BOTH'],
+            'pad character cannot be empty'        => ['squ', '', 2, 'STR_PAD_RIGHT'],
+            'invalid pad character and max length' => ['NO', '', '5'],
+        ];
     }
 
     /**
@@ -57,12 +57,12 @@ class PadStringExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function provideForPadTest()
     {
-        return array(
-            array('oops', 'ps', 'o', 4, 'STR_PAD_LEFT'),
-            array('-woof-', 'woof', '-', 6, 'STR_PAD_BOTH'),
-            array('squeeeee', 'squ', 'e', 8, 'STR_PAD_RIGHT'),
-            array('NOOOO', 'NO', 'O', 5),
-            array('hahahahaha', '', 'ha', 10),
-        );
+        return [
+            ['oops', 'ps', 'o', 4, 'STR_PAD_LEFT'],
+            ['-woof-', 'woof', '-', 6, 'STR_PAD_BOTH'],
+            ['squeeeee', 'squ', 'e', 8, 'STR_PAD_RIGHT'],
+            ['NOOOO', 'NO', 'O', 5],
+            ['hahahahaha', '', 'ha', 10],
+        ];
     }
 }

@@ -4,7 +4,7 @@ namespace DMS\Bundle\TwigExtensionBundle\Tests\Twig\Date;
 
 use DMS\Bundle\TwigExtensionBundle\Twig\Date\TextualDateExtension;
 
-class DateExtensionTest extends \PHPUnit_Framework_TestCase
+class TextualDateExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var TextualDateExtension
@@ -38,16 +38,17 @@ class DateExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function provideForException()
     {
-        return array(
-            array(date('ymd')),
-            array('02/02/2012'),
-            array(time()),
-        );
+        return [
+            [date('ymd')],
+            ['02/02/2012'],
+            [time()],
+        ];
     }
 
     /**
      * @param $dateDescription
      * @param $expectedOutput
+     *
      * @return void
      *
      * @dataProvider provideForTextual
@@ -58,39 +59,38 @@ class DateExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->translator->expects($this->once())
             ->method('transChoice')
-            ->will($this->returnCallback(function() { return func_get_args(); }));
+            ->will($this->returnCallback(function () { return func_get_args(); }));
 
         $result = $this->extension->textualDateFilter($date);
 
         $this->assertEquals($expectedOutput, $result[0]);
-
     }
 
     public function provideForTextual()
     {
-        return array(
-            array('-16 seconds', 'ago.s'),
-            array('-1 minute',   'ago.i'),
-            array('-5 minutes',  'ago.i'),
-            array('-1 hour',     'ago.h'),
-            array('-5 hour',     'ago.h'),
-            array('-30 hour',    'date.yesterday'),
-            array('-31 hour',    'date.yesterday'),
-            array('+31 hour',    'date.tomorrow'),
-            array('-1 day',      'date.yesterday'),
-            array('+1 day',      'date.tomorrow'),
-            array('-2 day',      'ago.d'),
-            array('-3 day',      'ago.d'),
-            array('-31 day',     'ago.m'),
-            array('-367 day',    'ago.y'),
-            array('+367 day',    'next.y'),
-            array('+40 days',    'next.m'),
-            array('+48 hours',   'next.d'),
-            array('+5 hour',     'next.h'),
-            array('+5 minutes',  'next.i'),
-            array('+25 seconds',  'next.s'),
-            array('now',         'date.just_now'),
-        );
+        return [
+            ['-16 seconds', 'ago.s'],
+            ['-1 minute',   'ago.i'],
+            ['-5 minutes',  'ago.i'],
+            ['-1 hour',     'ago.h'],
+            ['-5 hour',     'ago.h'],
+            ['-30 hour',    'date.yesterday'],
+            ['-31 hour',    'date.yesterday'],
+            ['+31 hour',    'date.tomorrow'],
+            ['-1 day',      'date.yesterday'],
+            ['+1 day',      'date.tomorrow'],
+            ['-2 day',      'ago.d'],
+            ['-3 day',      'ago.d'],
+            ['-31 day',     'ago.m'],
+            ['-367 day',    'ago.y'],
+            ['+367 day',    'next.y'],
+            ['+40 days',    'next.m'],
+            ['+48 hours',   'next.d'],
+            ['+5 hour',     'next.h'],
+            ['+5 minutes',  'next.i'],
+            ['+25 seconds',  'next.s'],
+            ['now',         'date.just_now'],
+        ];
     }
 
     protected function buildDependencies()
