@@ -8,14 +8,14 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * This is the class that loads and manages your bundle configuration
+ * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
 class DMSTwigExtensionExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -26,16 +26,13 @@ class DMSTwigExtensionExtension extends Extension
         $loader->load('services.yml');
 
         foreach ($config as $extensionGroup => $extensions) {
-
             foreach ($extensions as $extension => $enabled) {
-
                 $service = "dms_twig_extension.$extensionGroup.$extension";
 
-                if($container->hasDefinition($service) && $enabled) {
+                if ($container->hasDefinition($service) && $enabled) {
                     $definition = $container->getDefinition($service);
                     $definition->addTag('twig.extension');
                 }
-
             }
         }
     }
