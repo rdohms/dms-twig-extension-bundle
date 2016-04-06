@@ -4,7 +4,7 @@ namespace DMS\Bundle\TwigExtensionBundle\Tests\Twig\Date;
 
 use DMS\Bundle\TwigExtensionBundle\Twig\Date\TextualDateExtension;
 
-class DateExtensionTest extends \PHPUnit_Framework_TestCase
+class TextualDateExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var TextualDateExtension
@@ -48,7 +48,6 @@ class DateExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @param $dateDescription
      * @param $expectedOutput
-     * @return void
      *
      * @dataProvider provideForTextual
      */
@@ -58,12 +57,11 @@ class DateExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->translator->expects($this->once())
             ->method('transChoice')
-            ->will($this->returnCallback(function() { return func_get_args(); }));
+            ->will($this->returnCallback(function () { return func_get_args(); }));
 
         $result = $this->extension->textualDateFilter($date);
 
         $this->assertEquals($expectedOutput, $result[0]);
-
     }
 
     public function provideForTextual()
