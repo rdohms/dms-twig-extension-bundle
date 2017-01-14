@@ -24,10 +24,11 @@ class Configuration implements ConfigurationInterface
             ->arrayNode('fabpot')
                 ->addDefaultsIfNotSet()
                 ->children()
+                    ->booleanNode('array')->defaultTrue()->end()
+                    ->booleanNode('date')->defaultTrue()->end()
                     ->booleanNode('i18n')->defaultFalse()->end()
-                    ->booleanNode('debug')->defaultFalse()->end()
-                    ->booleanNode('text')->defaultTrue()->end()
                     ->booleanNode('intl')->defaultTrue()->end()
+                    ->booleanNode('text')->defaultTrue()->end()
                 ->end()
             ->end();
 
