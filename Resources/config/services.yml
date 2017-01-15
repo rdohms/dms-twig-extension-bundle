@@ -3,17 +3,22 @@
 services:
 
 # Fabien Potencier' Twig Extensions
+    dms_twig_extension.fabpot.array:
+        class: Twig_Extensions_Extension_Array
+
+    dms_twig_extension.fabpot.date:
+        class: Twig_Extensions_Extension_Date
+        arguments:
+            translator: "@translator"
+
+    dms_twig_extension.fabpot.i18n:
+        class: Twig_Extensions_Extension_I18n
+
     dms_twig_extension.fabpot.intl:
         class: Twig_Extensions_Extension_Intl
 
     dms_twig_extension.fabpot.text:
         class: Twig_Extensions_Extension_Text
-
-    dms_twig_extension.fabpot.i18n:
-        class: Twig_Extensions_Extension_I18n
-
-    dms_twig_extension.fabpot.debug:
-        class: Twig_Extensions_Extension_Debug
 
 # DMS Twig Extensions
     dms_twig_extension.dms.textual_date:
@@ -21,4 +26,4 @@ services:
         arguments:
             translator: "@translator"
     dms_twig_extension.dms.pad_string:
-            class: DMS\Bundle\TwigExtensionBundle\Twig\Text\PadStringExtension
+        class: DMS\Bundle\TwigExtensionBundle\Twig\Text\PadStringExtension
