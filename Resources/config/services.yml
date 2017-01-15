@@ -8,6 +8,8 @@ services:
 
     dms_twig_extension.fabpot.date:
         class: Twig_Extensions_Extension_Date
+        arguments:
+            translator: "@translator"
 
     dms_twig_extension.fabpot.i18n:
         class: Twig_Extensions_Extension_I18n
