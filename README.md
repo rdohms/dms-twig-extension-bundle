@@ -46,15 +46,17 @@ Load the bundle in your AppKernel
 
 To control which extensions should be enabled, you can optionally add configuration settings in app/config.yml:
 
-    dms_twig_extension:   
-        fabpot:               
-            i18n:                 false 
-            debug:                false 
-            text:                 true 
-            intl:                 true 
-        dms:                  
-            textual_date:         true
-            pad_string:           true
+    # Default settings
+    dms_twig_extension:
+        fabpot:
+            array: true
+            date: true
+            i18n: false
+            intl: true
+            text: true
+        dms:
+            textual_date: true
+            pad_string: true
         
 Extensions set to `false` will not be loaded. Please refer to the extensions documentation for detailed usage on each one.
 
