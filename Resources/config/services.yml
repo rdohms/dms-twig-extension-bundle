@@ -9,7 +9,7 @@ services:
     dms_twig_extension.fabpot.date:
         class: Twig_Extensions_Extension_Date
         arguments:
-            translator: "@translator"
+            $translator: "@translator"
 
     dms_twig_extension.fabpot.i18n:
         class: Twig_Extensions_Extension_I18n
@@ -24,6 +24,6 @@ services:
     dms_twig_extension.dms.textual_date:
         class: DMS\Bundle\TwigExtensionBundle\Twig\Date\TextualDateExtension
         arguments:
-            translator: "@translator"
+            $translator: "@translator"
     dms_twig_extension.dms.pad_string:
         class: DMS\Bundle\TwigExtensionBundle\Twig\Text\PadStringExtension
