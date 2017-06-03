@@ -3,22 +3,20 @@ language: php
 sudo: false
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
   - 5.6
-  - 7
+  - 7.0
+  - 7.1
 
 matrix:
   include:
     - php: 5.6
-      env: dependencies=lowest
-    - php: 7
-      env: dependencies=lowest
+      env: SYMFONY_VERSION=^2
+    - php: 7.1
+      env: SYMFONY_VERSION=^2
     - php: 5.6
-      env: dependencies=highest
-    - php: 7
-      env: dependencies=highest
+      env: SYMFONY_VERSION=^3
+    - php: 7.1
+      env: SYMFONY_VERSION=^3
 
 cache:
   directories:
@@ -26,8 +24,8 @@ cache:
 
 before_script:
   - composer self-update -q
-  - if [ -z "$dependencies" ]; then composer install; fi;
-  - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
-  - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
+  - if [[ "$TRAVIS_PHP_VERSION" != 7.1* ]]; then echo "removing lock file" && rm composer.lock; fi;
+  - composer install
+  - if [ "$SYMFONY_VERSION" != "" ]; then echo "installing symfony ${SYMFONY_VERSION}" && composer require "symfony/symfony:${SYMFONY_VERSION}" --update-with-dependencies; fi;
 
 script: ./vendor/bin/phpunit --coverage-text
