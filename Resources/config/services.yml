@@ -25,6 +25,6 @@ services:
         class: DMS\Bundle\TwigExtensionBundle\Twig\Date\TextualDateExtension
         arguments:
             - "@translator"
-            
+
     dms_twig_extension.dms.pad_string:
         class: DMS\Bundle\TwigExtensionBundle\Twig\Text\PadStringExtension
