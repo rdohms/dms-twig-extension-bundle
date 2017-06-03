@@ -35,6 +35,11 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->container->get('dms_twig_extension.dms.textual_date');
         $this->container->get('dms_twig_extension.fabpot.array');
 
-        self::assertTrue($this->container->isCompiled());
+        if (method_exists($this->container, 'isCompiled')) {
+            self::assertTrue($this->container->isCompiled());
+        } else {
+            self::assertTrue($this->container->isFrozen());
+        }
+
     }
 }
