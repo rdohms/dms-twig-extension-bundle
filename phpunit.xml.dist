@@ -16,4 +16,8 @@
             <directory>vendor</directory>
         </blacklist>
     </filter>
+
+    <php>
+        <server name="KERNEL_DIR" value="./vendor/" />
+    </php>
 </phpunit>
